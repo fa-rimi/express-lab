@@ -2,6 +2,10 @@ const express = require("express"); // Import the 'express' library
 const app = express(); // Create a new Express application.
 const port = 4000; // The port number where our server will listen for incoming requests.
 
+app.get("/", (req, res) => {
+    res.send('Hi!')
+});
+
 // todo: greetings name
 // Define a route for '/greeting/:name'
 app.get("/greeting/:name", (req, res) => {
