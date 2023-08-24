@@ -1,7 +1,8 @@
 const express = require("express"); // Import the 'express' library
 const app = express(); // Create a new Express application.
-const port = 3000; // The port number where our server will listen for incoming requests.
+const port = 4000; // The port number where our server will listen for incoming requests.
 
+// todo: greetings name
 // Define a route for '/greeting/:name'
 app.get("/greeting/:name", (req, res) => {
   const name = req.params.name;
@@ -22,6 +23,13 @@ app.get("/greeting/:name", (req, res) => {
 
   // Send the greeting as a response
   res.send(`Wow! ${randomGreeting}`);
+});
+
+// todo: Tip Total TipPercentage
+// Extract the 'total' and 'tipPercentage' parameters from the URL.
+app.get("/tip/:total/:tipPercentage", (req, res) => {
+  let tip = req.params.total * (req.params.tipPercentage / 100);
+  res.send(`Tip Amount: $${tip}`);
 });
 
 // Start the server
